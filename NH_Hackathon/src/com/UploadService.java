@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Util.AI_Classification_Server_To;
 import Util.cursingUtill;
 
 /**
@@ -31,7 +32,7 @@ public class UploadService extends HttpServlet {
 		
 		/////////////////////////////////////////////모델자리////////////////////////////////////////////////
 		int count = cursingUtill.getChage(content).getCount(); // 욕 마이닝
-		String lv = "1";
+		String lv = AI_Classification_Server_To.getClassification(content); // 이자리
 		//////////////////////////////////////////////////////////////////////////////////////////////////
 
 		if (ProblemsDAO.getDao().insert(new ProblemsDTO(writer, id, number, email, Integer.parseInt(category1), Integer.parseInt(category2), content, Integer.parseInt(lv), count))

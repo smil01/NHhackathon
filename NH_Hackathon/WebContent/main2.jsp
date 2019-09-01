@@ -52,7 +52,10 @@
           <a class="nav-link js-scroll-trigger" href="#education">Team Settings</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#skills">Customers</a>
+          <a class="nav-link js-scroll-trigger" href="#skills">Best Customers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#skills2">Attention Customers</a>
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="/service">Mode Change</a>
@@ -347,7 +350,40 @@
 
     <hr class="m-0">
 
+
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
+      <div class="w-100">
+       <h2 class="mb-5">긍정고객 리스트</h2>
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          	<div class="resume-content">
+        		<h3 class="mb-0">&nbsp;&nbsp;긍적적인 단어 사용으로 행복을 주는 고객 리스트</h3>
+        		 <p class="lead mb-5">&nbsp;&nbsp;&nbsp;&nbsp;조금 더 밝은 단어로 고객님의 민원을 처리하여 주세요.<br>(긍부정 전체 합계 1위부터 10위를 표시하며, 긍부정 단계 합은 높을 수록 긍정적인 고객님 이십니다.)</p>
+ 			<table class="table" style="text-align: center;">
+ 				<thead class="thead-dark">
+					<tr>
+	 					<th>회원명</th>
+	 					<th>연락처</th>
+	 					<th>긍지수(총합)</th>
+	 					<th>비속어(총합)</th>
+					</tr>
+ 				</thead>
+ 				<tbody id="trank2">
+					
+ 				</tbody>
+ 			</table>
+        	</div>
+	        <div class="resume-date text-md-right">
+	            <span class="text-primary">September 2019 </span>
+	        </div>
+        </div>
+      </div>
+    </section>
+  </div>
+    
+       <hr class="m-0">
+
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills2">
       <div class="w-100">
        <h2 class="mb-5">관심고객 리스트</h2>
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
@@ -360,7 +396,7 @@
 	 					<th>회원명</th>
 	 					<th>연락처</th>
 	 					<th>비속어(총합)</th>
-	 					<th>긍/부정(평균)</th>
+	 					<th>부정지수(평균)</th>
 					</tr>
  				</thead>
  				<tbody id="trank">
@@ -374,7 +410,7 @@
         </div>
       </div>
     </section>
-  </div>
+  
 
 
   <!-- Modal -->
@@ -560,11 +596,17 @@
 	        	} else {  
 	        		if(token){
 	        			$('#trank').empty();
+	        			$('#trank2').empty();
 	        		}
 	        		
-	        		for(var i = 0; i < result.size; i++){
-	        			var temp = JSON.parse(result[i]);
+	        		for(var i = 0; i < result[0].size; i++){
+	        			var temp = JSON.parse(result[0][i]);
 	        			$('#trank').append("<tr><td>" + temp.writer + "</td><td>" + temp.phone + "</td><td>" + temp.count + "</td><td>" + temp.lv + "</td></tr>");
+	        		}
+	        		
+	        		for(var i = 0; i < result[1].size; i++){
+	        			var temp = JSON.parse(result[1][i]);
+	        			$('#trank2').append("<tr><td>" + temp.writer + "</td><td>" + temp.phone + "</td><td>" + temp.lv + "</td><td>" + temp.count + "</td></tr>");
 	        		}
 	        	}
 	        }
@@ -600,7 +642,7 @@
 			$('#select1').append("<tr><td onClick='showWindow(0, "+ i +")'>" + temp.num + "</td><td onClick='showWindow(0, "+ i +")'>" + (temp.category1=="1"?"개인":"기업") + "</td><td onClick='showWindow(0, "+ i +")'>" + (temp.category2=="1"?"서비스 불편사항":temp.category2=="2"?"거래 불편사항":temp.category2=="3"?"전산 오류":"기타") + "</td><td onClick='showWindow(0, "+ i +")'>" + temp.lv + "</td><td onClick='showWindow(0, "+ i +")'>" + temp.count + "</td><td onClick='showWindow(0, "+ i +")'>" + (temp.state=="0"?"접수중":temp.state=="1"?"처리중":"완료") +"</td></tr>");
 		}
 		if(result.size == 0) {
-			$('#select1').append("<tr><td colspan='6'><b>현재 이승경 상담사님은 배당 된 업무가 없습니다.</b></td></tr>");
+			$('#select1').append("<tr><td colspan='6'><b>현재 이승경 상담사님은 배당 된 상담이 없습니다.</b></td></tr>");
 		}
 	}
 	
@@ -614,7 +656,7 @@
 			$('#select2').append("<tr><td onClick='showWindow(1, "+ i +")'>" + temp.num + "</td><td onClick='showWindow(1, "+ i +")'>" + (temp.category1=="1"?"개인":"기업") + "</td><td onClick='showWindow(1, "+ i +")'>" + (temp.category2=="1"?"서비스 불편사항":temp.category2=="2"?"거래 불편사항":temp.category2=="3"?"전산 오류":"기타") + "</td><td onClick='showWindow(1, "+ i +")'>" + temp.lv + "</td><td onClick='showWindow(1, "+ i +")'>" + temp.count + "</td><td onClick='showWindow(1, "+ i +")'>" + (temp.state=="0"?"접수중":temp.state=="1"?"처리중":"완료") +"</td></tr>");
 		}
 		if(result.size == 0) {
-			$('#select2').append("<tr><td colspan='6'><b>현재 정동윤 상담사님은 배당 된 업무가 없습니다.</b></td></tr>");
+			$('#select2').append("<tr><td colspan='6'><b>현재 정동윤 상담사님은 배당 된 상담이 없습니다.</b></td></tr>");
 		}
 	}
 	
@@ -628,7 +670,7 @@
 			$('#select3').append("<tr><td onClick='showWindow(2, "+ i +")'>" + temp.num + "</td><td onClick='showWindow(2, "+ i +")'>" + (temp.category1=="1"?"개인":"기업") + "</td><td onClick='showWindow(2, "+ i +")'>" + (temp.category2=="1"?"서비스 불편사항":temp.category2=="2"?"거래 불편사항":temp.category2=="3"?"전산 오류":"기타") + "</td><td onClick='showWindow(2, "+ i +")'>" + temp.lv + "</td><td onClick='showWindow(2, "+ i +")'>" + temp.count + "</td><td onClick='showWindow(2, "+ i +")'>" + (temp.state=="0"?"접수중":temp.state=="1"?"처리중":"완료") +"</td></tr>");
 		}
 		if(result.size == 0) {
-			$('#select3').append("<tr><td colspan='6'><b>현재 송승준 상담사님은 배당 된 업무가 없습니다.</b></td></tr>");
+			$('#select3').append("<tr><td colspan='6'><b>현재 송승준 상담사님은 배당 된 상담이 없습니다.</b></td></tr>");
 		}
 	}
 	
@@ -642,7 +684,7 @@
 			$('#select4').append("<tr><td onClick='showWindow(3, "+ i +")'>" + temp.num + "</td><td onClick='showWindow(3, "+ i +")'>" + (temp.category1=="1"?"개인":"기업") + "</td><td onClick='showWindow(3, "+ i +")'>" + (temp.category2=="1"?"서비스 불편사항":temp.category2=="2"?"거래 불편사항":temp.category2=="3"?"전산 오류":"기타") + "</td><td onClick='showWindow(3, "+ i +")'>" + temp.lv + "</td><td onClick='showWindow(3, "+ i +")'>" + temp.count + "</td><td onClick='showWindow(3, "+ i +")'>" + (temp.state=="0"?"접수중":temp.state=="1"?"처리중":"완료") +"</td></tr>");
 		}
 		if(result.size == 0) {
-			$('#select4').append("<tr><td colspan='6'><b>현재 오대근 상담사님은 배당 된 업무가 없습니다.</b></td></tr>");
+			$('#select4').append("<tr><td colspan='6'><b>현재 오대근 상담사님은 배당 된 상담이 없습니다.</b></td></tr>");
 		}
 	}
 	
@@ -704,10 +746,10 @@
 			});
 	}
 	
-	setInterval(function(){
+/*	setInterval(function(){
 		getRank(true);
 		getSelect(true);
-	}, 10000);
+	}, 15000);*/
 </script>
 </body>
 

@@ -72,6 +72,29 @@ public class RankDAO {
 		return selectWriter(list);
 	}
 	
+	public ArrayList<RankDTO> selectAll2() {
+		ArrayList<RankDTO> list = new ArrayList<RankDTO>();
+		try {
+			getCon();
+
+			String sql = "SELECT PHONE, SUM(LV), SUM(COUNT) FROM PROBLEMS GROUP BY PHONE HAVING SUM(COUNT) = 0 ORDER BY SUM(LV) DESC";
+
+			pst = conn.prepareStatement(sql);
+
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				list.add(new RankDTO(rs.getString(1), rs.getInt(2), rs.getInt(3)));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return selectWriter(list);
+	}
+	
 	public ArrayList<RankDTO> selectWriter(ArrayList<RankDTO> list) {
 		for(int i = 0; i < list.size(); i++) {
 			try {

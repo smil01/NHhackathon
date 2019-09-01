@@ -6,14 +6,14 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class AI_Classification_Server_To {
-	public static String getClassification(String fileName) {
+	public static String getClassification(String content) {
 		String result = "0";
 
 		try {
 			Socket m_Socket = new Socket("127.0.0.1", 5555);
 
 			PrintWriter sendWriter = new PrintWriter(m_Socket.getOutputStream());
-			sendWriter.print(fileName);
+			sendWriter.print(content);
 			sendWriter.flush();
 
 			BufferedReader in = new BufferedReader(new InputStreamReader(m_Socket.getInputStream()));

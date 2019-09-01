@@ -244,12 +244,14 @@
 				<th>상태</th>
 			</tr>
 			<c:forEach var="dto" items="${list}" varStatus="status">
+				<c:if test="${dto.writer eq user.name}">
 				<tr>
 					<td><a href="#services" onclick="showModal(${status.count-1})">${dto.num}</a></td>
 					<td><a href="#services" onclick="showModal(${status.count-1})">${dto.category1 == "1" ? "개인" : "기업"}</a></td>
 					<td><a href="#services" onclick="showModal(${status.count-1})">${dto.category2 == "1" ? "서비스 불편사항" : dto.category2 == "2" ? "거래 불편사항" : dto.category2 == "3" ? "전산 오류" : "미확인"}</a></td>
 					<td><a href="#services" onclick="showModal(${status.count-1})">${dto.state == 0 ? "접수중" : dto.state == 1 ? "처리중" : "기타"}</a></td>
 				</tr>
+				</c:if>
 			</c:forEach>
 		</table>
     </div>
@@ -431,8 +433,8 @@ $('document').ready(function(){
 	          			 <p class="text-muted mb-0" align="center">민원내용</p>
 	          		</td>
 	          		<td align="left">
-	          			 <textarea class="form-control" rows="10" maxlength="300" id="temp_content1" name="temp_content1"></textarea>
-	          			 <textarea class="form-control" rows="10" maxlength="300" id="temp_content2" name="temp_content2" style="display: none;"></textarea>
+	          			 <textarea class="form-control" rows="10" maxlength="300" id="temp_content2" name="temp_content1"></textarea>
+	          			 <textarea class="form-control" rows="10" maxlength="300" id="temp_content1" name="temp_content2" style="display: none;"></textarea>
 	          		</td>
 	          	</tr>
 	          	<tr>
@@ -446,7 +448,7 @@ $('document').ready(function(){
 	          </table>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" id="change_btn" onclick="textareaChange()">필터링 해체</button>&nbsp;
+          <button type="button" class="btn btn-default" id="change_btn" onclick="textareaChange()" style="display: none;">필터링 해체</button>&nbsp;
           <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
         </div>
       </div>
