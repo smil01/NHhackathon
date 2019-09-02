@@ -34,7 +34,7 @@
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
       <span class="d-block d-lg-none">Clarence Taylor</span>
       <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/0.png" onclick="javascript:window.open('img/0.png','new','width=500,height=500,top=100,left=100');">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/0.png" onclick="supasupa()">
       </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -744,6 +744,13 @@
 		        	}
 		        }
 			});
+	}
+  	
+  	function supasupa() {
+            var url = "/NH_Hackathon_Chat/chats.jsp";
+            var name = "고영윤 팀장의 비밀기능";
+            var option = "width = 414, height = 736, top = 150, left = 250, location = no"
+            window.open(url, name, option);
 	}
 	
 /*	setInterval(function(){
