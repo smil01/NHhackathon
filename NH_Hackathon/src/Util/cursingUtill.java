@@ -14,7 +14,7 @@ public class cursingUtill {
 			while (true) {
 				if (temp2.indexOf(temp.getContent()) >= 0) {
 					count += 1;
-					temp2 = temp2.substring(temp2.indexOf(temp.getContent()) + 1, temp2.length() - 1);					
+					temp2 = temp2.substring(temp2.indexOf(temp.getContent()) + 1, temp2.length());					
 				} else {
 					break;
 				}

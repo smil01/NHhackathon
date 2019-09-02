@@ -83,7 +83,7 @@ public class cursingDAO {
 			rs = pst.executeQuery();
 
 			while (rs.next()) {
-				list.add(new cursingDTO(rs.getInt(1), rs.getString(2), rs.getString(3)));
+				if(rs.getString(2)!=null) list.add(new cursingDTO(rs.getInt(1), rs.getString(2), rs.getString(3)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
