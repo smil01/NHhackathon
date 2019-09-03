@@ -67,6 +67,20 @@
           </span>
         </a>
       </li>
+      <li class="chats__chat">
+        <a href="chat2.jsp">
+          <div class="chat__content">
+            <img src="images/1.png">
+            <div class="chat__preview">
+                <h3 class="chat__user">이승경 대리</h3>
+                <span class="chat__last-message">음성 분석 테스트 대화방입니다.</span>
+            </div>
+          </div>
+          <span class="chat__date-time">
+            18:00
+          </span>
+        </a>
+      </li>
     </ul>
       <div class="chat-btn">
         <i class="fa fa-comment"></i>
