@@ -63,7 +63,7 @@
 <div class="type-message">
   <i class="fa fa-plus fa-lg"></i>
   <div class="type-message__input">
-    	<input type="file" id="wav_files" name="wav_file" accept="audio/wav">
+    	<input type="file" id="wav_files" name="wav_file" accept="audio/wav" capture="microphone">
     <i class="fa fa-smile-o fa-lg"></i>
     <span class="record-message">
       <i class="fa fa-microphone fa-lg"></i>

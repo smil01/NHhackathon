@@ -68,7 +68,7 @@
 
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
       <div class="w-100">
-        <h1 class="mb-0">Yeongyun
+        <h1 class="mb-0" onclick="supasupa()">Yeongyun
           <span class="text-primary">Go</span>
         </h1>
         <div class="subheading mb-5">인터넷 상담 1부 · 1팀장 · (02) 234-0302 ·
@@ -522,7 +522,7 @@
         </div>
         </form>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" id="change_btn" onclick="update()">업무 처리</button>&nbsp;
+          <button type="button" class="btn btn-primary" onclick="update()">업무 처리</button>&nbsp;
           <button type="button" class="btn btn-danger" id="change_btn" onclick="textareaChange()">필터링 해체</button>&nbsp;
           <button type="button" class="btn btn-info" data-dismiss="modal">닫기</button>
         </div>
@@ -753,10 +753,10 @@
             window.open(url, name, option);
 	}
 	
-/*	setInterval(function(){
+	setInterval(function(){
 		getRank(true);
 		getSelect(true);
-	}, 15000);*/
+	}, 15000);
 </script>
 </body>
 
