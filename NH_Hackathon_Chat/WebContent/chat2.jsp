@@ -63,7 +63,7 @@
 <div class="type-message">
   <i class="fa fa-plus fa-lg"></i>
   <div class="type-message__input">
-    	<input type="file" id="wav_files" name="wav_file" accept="audio/wav" capture="microphone">
+    	<input type="file" id="wav_files" name="wav_file" accept="audio/wav">
     <i class="fa fa-smile-o fa-lg"></i>
     <span class="record-message">
       <i class="fa fa-microphone fa-lg"></i>
@@ -106,6 +106,8 @@ $(document).ready(function() {
 	    				        	setOrgAiMsg("긍/부정 10단계 : " + result2.lv + "단계<br><br>" +
 	    				        			"비속어 사용 횟수 : " + result2.count + "회");
 	    				        	setAiMsg("필터링 내용 : " + result2.content);
+	    				        	
+	    				        	$('#wav_files').val('');
 	    			        	} else {
 	    							setMyMsg(result);
 	    							

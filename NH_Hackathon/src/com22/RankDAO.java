@@ -54,7 +54,7 @@ public class RankDAO {
 		try {
 			getCon();
 
-			String sql = "SELECT PHONE, AVG(LV), SUM(COUNT) FROM PROBLEMS GROUP BY PHONE ORDER BY SUM(COUNT) DESC";
+			String sql = "SELECT PHONE, AVG(LV), SUM(COUNT) FROM PROBLEMS GROUP BY PHONE HAVING SUM(COUNT) > 0 ORDER BY SUM(COUNT) DESC";
 
 			pst = conn.prepareStatement(sql);
 

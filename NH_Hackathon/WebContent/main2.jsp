@@ -68,7 +68,7 @@
 
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
       <div class="w-100">
-        <h1 class="mb-0" onclick="supasupa()">Yeongyun
+        <h1 class="mb-0" onclick="supasupa()">YOUNGYUN
           <span class="text-primary">Go</span>
         </h1>
         <div class="subheading mb-5">인터넷 상담 1부 · 1팀장 · (02) 234-0302 ·
